@@ -36,3 +36,25 @@ if __name__ == "__main__":
     matrix = MotorMatrix()
     print(f"[MOTOR_MATRIX] Initialized. Baseline State: {matrix.state}")
     matrix.execute_cycle("SYN_INIT")
+def execute_cycle(self, opcode: str) -> bool:
+        weight = self.resolve_operand(opcode)
+        if weight == 0xFF:
+            self.state = "FAULT"
+            return False
+        print(f"[MOTOR_MATRIX] Executed operand {opcode} -> Hex: {hex(weight)} | State: {self.state}")
+        return True
+
+    def evaluate_telemetry(self, input_signal: float) -> str:
+        """Simulates PLL tracking and phase error correction for telemetry streams."""
+        threshold = 0.85
+        if input_signal >= threshold:
+            self.state = "LOCKED"
+        else:
+            self.state = "DRIFT_DETECTED"
+        print(f"[MOTOR_MATRIX] Signal: {input_signal} | State Transition: {self.state}")
+        return self.state
+
+if __name__ == "__main__":
+    matrix = MotorMatrix()
+    print(f"[MOTOR_MATRIX] Initialized. Baseline State: {matrix.state}")
+    matrix.execute_cycle("SYN_INIT")
