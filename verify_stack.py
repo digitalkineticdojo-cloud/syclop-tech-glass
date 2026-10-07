@@ -35,3 +35,9 @@ from syclop_orchestrator import SyclopOrchestrator
 orch = SyclopOrchestrator()
 assert orch.status == "ARMED"
 print("[STACK_VERIFY] Master Orchestrator: PASS")
+
+# Master Orchestrator Parity Check
+from syclop_orchestrator import SyclopOrchestrator
+orch = SyclopOrchestrator()
+assert orch.status == "ARMED"
+print("[STACK_VERIFY] Master Orchestrator: PASS")
