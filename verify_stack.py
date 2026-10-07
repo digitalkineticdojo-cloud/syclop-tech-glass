@@ -11,3 +11,9 @@ if missing:
     sys.exit(1)
 
 print("[STACK_VERIFY] STATUS: NOMINAL (100% Parity)")
+
+# IDCC Matrix Resolver Parity Check
+from motor_matrix import MatrixResolver
+resolver = MatrixResolver()
+assert resolver.resolve_matrix_operand("SYN_IDCC_BIND") is not None
+print("[STACK_VERIFY] IDCC Matrix Resolver: PASS")
