@@ -29,3 +29,9 @@ from adb_actuator import ADBActuator
 actuator = ADBActuator()
 assert actuator.dispatch_signal("SYN_TEST") is not None
 print("[STACK_VERIFY] ADB Actuator: PASS")
+
+# Orchestrator Parity Check
+from syclop_orchestrator import SyclopOrchestrator
+orch = SyclopOrchestrator()
+assert orch.status == "ARMED"
+print("[STACK_VERIFY] Master Orchestrator: PASS")
