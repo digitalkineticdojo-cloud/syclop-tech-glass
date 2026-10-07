@@ -17,3 +17,9 @@ from motor_matrix import MatrixResolver
 resolver = MatrixResolver()
 assert resolver.resolve_matrix_operand("SYN_IDCC_BIND") is not None
 print("[STACK_VERIFY] IDCC Matrix Resolver: PASS")
+
+# Telemetry Daemon Parity Check
+from telemetry_daemon import TelemetryDaemon
+daemon = TelemetryDaemon()
+assert daemon.frequency == 8.0
+print("[STACK_VERIFY] Telemetry Daemon: PASS")
