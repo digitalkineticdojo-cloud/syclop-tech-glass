@@ -23,3 +23,9 @@ from telemetry_daemon import TelemetryDaemon
 daemon = TelemetryDaemon()
 assert daemon.frequency == 8.0
 print("[STACK_VERIFY] Telemetry Daemon: PASS")
+
+# ADB Actuator Parity Check
+from adb_actuator import ADBActuator
+actuator = ADBActuator()
+assert actuator.dispatch_signal("SYN_TEST") is not None
+print("[STACK_VERIFY] ADB Actuator: PASS")
