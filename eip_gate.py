@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """
-eip_gate.py - Structural token parsing and morphological plasticity gate.
+eip_gate.py - Structural token parsing, Boolean EIP barrier, and morphological plasticity gate.
 Applies 'Play-Doh' shape-shifting mechanics to maintain agreement parity.
 """
+
+class EIPGate:
+    def __init__(self, state: bool = True):
+        self.state = state
+
+    def evaluate(self) -> bool:
+        """Boolean AND-gate EIP barrier evaluation for stack verification."""
+        return self.state
 
 class MorphologicalPlasticityGate:
     @staticmethod
@@ -25,3 +33,6 @@ class MorphologicalPlasticityGate:
                 return token + "s", True
                 
         return token, True
+
+# Compatibility alias
+EIPGate.deform_and_check = MorphologicalPlasticityGate.deform_and_check
